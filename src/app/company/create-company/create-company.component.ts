@@ -39,12 +39,10 @@ export class CreateCompanyComponent implements OnInit {
   async response(data: any): Promise<void>{
     JSON.parse(JSON.stringify(data))
     if(JSON.parse(JSON.stringify(data)).company){
-      this._snackBar.open("Empresa cadastrada com sucesso", "sair");
+      this._snackBar.open("Empresa cadastrada com sucesso", "sair", { duration: 3000 });
       this.dialogRef.close();
-      await new Promise(f => setTimeout(f, 2000));
-      window.location.reload();
     }else{
-      this._snackBar.open("algo deu errado", "sair");
+      this._snackBar.open("algo deu errado", "sair", { duration: 3000 });
     }
   }
 }

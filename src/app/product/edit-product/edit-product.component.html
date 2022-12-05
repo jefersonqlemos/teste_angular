@@ -1,1 +1,23 @@
-<p>edit-product works!</p>
+<h1 mat-dialog-title>Editar Produto</h1>
+<form #formProduct="ngForm" (ngSubmit)="updateProduct(formProduct.value, product.company_id)">
+  <div mat-dialog-content>
+    <mat-form-field appearance="fill" [style.width.%]=100>
+      <mat-label>ID</mat-label>
+      <input matInput type="number" name="id" [(ngModel)]="product.id" readonly required>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill" [style.width.%]=100>
+      <mat-label>Nome</mat-label>
+      <input matInput name="name" [(ngModel)]="product.name" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field appearance="fill" [style.width.%]=100>
+        <mat-label>Valor</mat-label>
+        <input matInput [options]="{ prefix: 'R$ ', align: 'left'}" currencyMask name="value" [(ngModel)]="product.value" required ngModel>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button type="button" mat-raised-button (click)="onNoClick()">Cancelar</button>
+    <button type="submit" mat-raised-button cdkFocusInitial color="primary" >Concluir</button>
+  </div>
+</form>

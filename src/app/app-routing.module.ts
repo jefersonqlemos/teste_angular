@@ -3,8 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ListProductComponent } from './product/list-product/list-product.component';
 import { EditProductComponent } from './product/edit-product/edit-product.component';
-import { ShowProductComponent } from './product/show-product/show-product.component';
-import { DeleteProductComponent } from './product/delete-product/delete-product.component';
 import { CreateProductComponent } from './product/create-product/create-product.component';
 
 import { ListCompanyComponent } from './company/list-company/list-company.component';
@@ -15,8 +13,6 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
   {path: 'list-product/:id', component: ListProductComponent},
   {path: 'edit-product', component: EditProductComponent},
-  {path: 'show-product', component: ShowProductComponent},
-  {path: 'delete-product', component: DeleteProductComponent},
   {path: 'create-product', component: CreateProductComponent},
 
   {path: 'list-company', component: ListCompanyComponent},

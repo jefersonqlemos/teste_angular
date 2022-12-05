@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ICompany } from 'src/app/services/interfaces/ICompany';
@@ -22,11 +22,12 @@ export class ListCompanyComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     public repositoryCompany: RepositoryCompanyService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private changeDetectorRefs: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
-    this.repositoryCompany.getAll().subscribe(data => (this.companies = JSON.parse(JSON.stringify(data)).companies) (this.state = true));
+    this.getAll();
   }
 
   private DIALOG_WIDTH = "50%"
@@ -38,8 +39,16 @@ export class ListCompanyComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
+      this.getAll();
       console.log('The dialog was closed');
     });
+  }
+
+  getAll(){
+    this.repositoryCompany.getAll().subscribe(data => 
+      (this.companies = JSON.parse(JSON.stringify(data)).companies) 
+      (this.state = true) 
+      (this.changeDetectorRefs.detectChanges()));
   }
 
   createCompany(): void {
@@ -54,16 +63,11 @@ export class ListCompanyComponent implements OnInit {
     this.repositoryCompany.delete(id).subscribe(data => this.responseDelete(data))
   }
 
-  listProducts(id: any): void{
-
-  }
-
   async responseDelete(data: any): Promise<void>{
     JSON.parse(JSON.stringify(data))
     if(JSON.parse(JSON.stringify(data)).success){
-      this._snackBar.open("Empresa excluida com sucesso", "sair");
-      await new Promise(f => setTimeout(f, 2000));
-      window.location.reload();
+      this._snackBar.open("Empresa excluida com sucesso", "sair", { duration: 3000 });
+      this.getAll();
     }else{
       this._snackBar.open("algo deu errado", "sair");
     }
