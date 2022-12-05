@@ -1,0 +1,12 @@
+.title-center {
+    margin: 0 auto;
+}
+
+button {
+    width: 100%;
+    text-align: left;
+}
+
+.container{
+    min-height:100vh;
+}
