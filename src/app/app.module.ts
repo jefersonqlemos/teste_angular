@@ -8,8 +8,6 @@ import { EditCompanyComponent } from './company/edit-company/edit-company.compon
 import { CreateCompanyComponent } from './company/create-company/create-company.component';
 import { CreateProductComponent } from './product/create-product/create-product.component';
 import { ListProductComponent } from './product/list-product/list-product.component';
-import { ShowCartComponent } from './cart/show-cart/show-cart.component';
-import { EditCartComponent } from './cart/edit-cart/edit-cart.component';
 import { ListOrderComponent } from './order/list-order/list-order.component';
 import { ShowOrderComponent } from './order/show-order/show-order.component';
 import { RegisterClientComponent } from './client/register-client/register-client.component';
@@ -63,6 +61,8 @@ import { FormsModule } from '@angular/forms';
 import { CurrencyMaskModule } from "ng2-currency-mask";
 import { HomeComponent } from './home/home.component';
 import { EditProductComponent } from './product/edit-product/edit-product.component';
+import { ListProductCartComponent } from './cart/list-product-cart/list-product-cart.component';
+import { ListProductsForSaleComponent } from './product/list-products-for-sale/list-products-for-sale.component';
 
 @NgModule({
   declarations: [
@@ -72,14 +72,14 @@ import { EditProductComponent } from './product/edit-product/edit-product.compon
     CreateCompanyComponent,
     CreateProductComponent,
     ListProductComponent,
-    ShowCartComponent,
-    EditCartComponent,
     ListOrderComponent,
     ShowOrderComponent,
     RegisterClientComponent,
     LoginClientComponent,
     HomeComponent,
-    EditProductComponent
+    EditProductComponent,
+    ListProductCartComponent,
+    ListProductsForSaleComponent
   ],
   imports: [
     BrowserModule,

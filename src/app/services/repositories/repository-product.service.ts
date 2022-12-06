@@ -17,6 +17,10 @@ export class RepositoryProductService {
     return this.requestsService.get('product', {params})
   }
 
+  getAllForSale() {
+    return this.requestsService.get('product-for-sale/list')
+  }
+
   edit(id: any){
     return this.requestsService.get('product/'+id)
   }

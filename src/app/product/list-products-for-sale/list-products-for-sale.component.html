@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+
+            <section>
+                <br>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <br>
+                        <h2 class="title-center">Produtos a Venda</h2>
+                    </div>
+                </div>
+                <br>
+            </section>
+
+            <mat-spinner color="accent" style="margin: 0 auto;" *ngIf="state == false"></mat-spinner>
+
+            <h1 *ngIf="products.length == 0 && state == true">Não há Produtos Para Venda</h1>
+
+            <table *ngIf="products.length > 0" mat-table [dataSource]="products" class="mat-elevation-z8">
+                <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+
+                <!-- Position Column -->
+                <ng-container matColumnDef="id">
+                    <th mat-header-cell *matHeaderCellDef> ID </th>
+                    <td mat-cell *matCellDef="let product"> {{product.id}} </td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Nome </th>
+                    <td mat-cell *matCellDef="let product"> {{product.name}} </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="value">
+                    <th mat-header-cell *matHeaderCellDef> Valor </th>
+                    <td mat-cell *matCellDef="let product">R$ {{product.value | number :'1.2-2'}} </td>
+                </ng-container>
+
+                <!-- Editar Column -->
+                <ng-container matColumnDef="buy">
+                    <th mat-header-cell *matHeaderCellDef> Adicionar ao Carrinho </th>
+                    <td mat-cell *matCellDef="let product"> 
+                        <button mat-mini-fab color="primary"
+                            (click)="addCart(product.id)">
+                            <mat-icon>shopping_cart</mat-icon>
+                        </button></td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+        </div>
+    </div>
+</div>

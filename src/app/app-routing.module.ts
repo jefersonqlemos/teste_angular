@@ -9,6 +9,7 @@ import { ListCompanyComponent } from './company/list-company/list-company.compon
 import { EditCompanyComponent } from './company/edit-company/edit-company.component';
 import { CreateCompanyComponent } from './company/create-company/create-company.component';
 import { HomeComponent } from './home/home.component';
+import { ListProductsForSaleComponent } from './product/list-products-for-sale/list-products-for-sale.component';
 
 const routes: Routes = [
   {path: 'list-product/:id', component: ListProductComponent},
@@ -18,6 +19,8 @@ const routes: Routes = [
   {path: 'list-company', component: ListCompanyComponent},
   {path: 'edit-company', component: EditCompanyComponent},
   {path: 'create-company', component: CreateCompanyComponent},
+
+  {path: 'list-products-for-sale', component: ListProductsForSaleComponent},
 
   {path: '', component: HomeComponent}
 ];

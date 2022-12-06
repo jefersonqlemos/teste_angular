@@ -6,32 +6,42 @@
       </button>
     </div>
     <span class="title-center">TESTE ANGULAR</span>
+    <span class="spacer"></span>
+    <button type="button" mat-icon-button>
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
   </mat-toolbar>
   <mat-drawer-container class="example-container" autosize>
     <mat-drawer #drawer class="example-sidenav" mode="side">
       <mat-list role="list">
         <h1 mat-subheader background-color="accent">Menu</h1>
         <mat-list-item role="listitem">
-          <button mat-button routerLink="">
-            <mat-icon>home</mat-icon>
+          <button class="button-drawer" mat-button routerLink="">
+            <mat-icon>home</mat-icon>&nbsp;&nbsp;
             <span>Home</span>
           </button>
         </mat-list-item>
         <mat-list-item role="listitem">
-          <button mat-button routerLink="/list-company">
-            <mat-icon>domain</mat-icon>
-            <span>Empresas</span>
+          <button class="button-drawer" mat-button routerLink="/list-company">
+            <mat-icon>domain</mat-icon>&nbsp;&nbsp;
+            <span>Empresas/Produtos</span>
           </button>
         </mat-list-item>
         <mat-list-item role="listitem">
-          <button mat-button routerLink="/list-cart">
-            <mat-icon>shopping_cart</mat-icon>
-            <span>Carrinhos</span>
+          <button class="button-drawer" mat-button routerLink="/list-products-for-sale">
+            <mat-icon>inbox</mat-icon>&nbsp;&nbsp;
+            <span>Produtos a venda</span>
           </button>
         </mat-list-item>
         <mat-list-item role="listitem">
-          <button mat-button routerLink="/list-order">
-            <mat-icon>format_list_bulleted</mat-icon>
+          <button class="button-drawer" mat-button routerLink="/list-product-cart">
+            <mat-icon>shopping_cart</mat-icon>&nbsp;&nbsp;
+            <span>Carrinho</span>
+          </button>
+        </mat-list-item>
+        <mat-list-item role="listitem">
+          <button class="button-drawer" mat-button routerLink="/list-order">
+            <mat-icon>format_list_bulleted</mat-icon>&nbsp;&nbsp;
             <span>Pedidos</span>
           </button>
         </mat-list-item>
