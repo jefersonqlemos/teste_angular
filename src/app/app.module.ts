@@ -99,7 +99,8 @@ import { ListProductsForSaleComponent } from './product/list-products-for-sale/l
     MatSidenavModule,
     MatListModule,
     MatProgressSpinnerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
